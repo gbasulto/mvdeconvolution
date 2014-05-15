@@ -1,0 +1,12 @@
+Package: mvdeconvolution
+Title: Multivariate kernel deconvolution
+Description: This package is intended to provide functions to perform
+    multivariate kernel deconvolution. Right now it only works for bivariate
+    cases.
+Version: 0.1
+Author: Guillermo Basulto-Elias <basulto@iastate.edu>
+Maintainer: Guillermo Basulto-Elias <basulto@iastate.edu>
+License: MIT
+VignetteBuilder: knitr
+Suggests:
+    knitr
