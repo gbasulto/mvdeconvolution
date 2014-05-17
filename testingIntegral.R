@@ -25,16 +25,18 @@ qplot(w, val, data = values, geom = "line",
 
 
 
-## Bivariate
+## Characteristic function of a bivariate normal distribution
 chf <- function(t1, t2) exp(-(t1^2 + t2^2)/2)
 f <- function(x, y) dnorm(x)*dnorm(y)
 
-system.time({bb <- I(f, n = 2, m = 2^8, a = c(-6, -6), b = c(6, 6),
-        c = c(-3, -3), d = c(3, 3), r = 1, s = 1)})
+cf <- FIntegral(f, n = 2, m = 2^8, a = c(-6, -6), b = c(6, 6),
+        c = c(-3, -3), d = c(3, 3), r = 1, s = 1)
 
-persp(Re(bb$ft), col = "lightblue", phi = 15, theta = 30,
+persp(Re(cf$ft), col = "lightblue", phi = 15, theta = 30,
       shade = .3, border = NA)
-#     Comparing with original function.
+
+
+##     Comparing with original function.
 vals <- outer(c(bb$w[1, ]), c(bb$w[2, ]), chf)
 ##persp(Mod(bb$ft - vals), col = "lightblue", phi = 15, theta = 30,
 ##      shade = .3, border = NA)

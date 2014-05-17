@@ -6,7 +6,9 @@ Description: This package is intended to provide functions to perform
 Version: 0.1
 Author: Guillermo Basulto-Elias <basulto@iastate.edu>
 Maintainer: Guillermo Basulto-Elias <basulto@iastate.edu>
-License: MIT
-VignetteBuilder: knitr
+License: MIT + file LICENSE
+Imports:
+    ggplot2
 Suggests:
     knitr
+VignetteBuilder: knitr

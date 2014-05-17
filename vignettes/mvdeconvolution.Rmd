@@ -2,3 +2,8 @@
 %\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{A multivariate deconvolution package}
 --> 
+
+Test
+=========================
+- sss
+- ssss

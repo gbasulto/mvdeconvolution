@@ -11,10 +11,12 @@
 #' @param a nx1 vector. Lower integration limit.
 #' @param b nx1 vector. Upper integration limit.
 #' @param c nx1 vector. Lower limit of w.
-#' @param l nx1 vector. Upper limit of w.
+#' @param d nx1 vector. Upper limit of w.
 #' @param r Power in (4.1).
 #' @param s Scale constant in (4.1).
 #' @examples
+#' ##  library(ggplot2)
+#' ##
 #' ##  Computing characteristic function of
 #' ##  univariate normal on -1, 10.
 #' ##
@@ -22,10 +24,10 @@
 #'         r = 1, s = 1)
 #' values <- data.frame(t = cf$w,
 #'                      cf = c(Re(cf$ft),
-#'                             sapply(aa$w, function(t) exp(-t^2/2))),
+#'                             sapply(cf$w, function(t) exp(-t^2/2))),
 #'                      type = rep(c("approx", "real"), length(cf$w))
 #'                      )
-#' qplot(t, cf, data = values, col = type, geom = "line")
+#' ggplot2:::qplot(t, cf, data = values, col = type, geom = "line")
 #'
 #' ## Real anf imag. parts of the characteristic function of an exponential
 #' ## distribution, approximated with 128 points.
@@ -43,7 +45,7 @@
 #'                     Part = rep(rep(c("Real", "Imag"), 2), each = m),
 #'                     Type = rep(c("FT", "Direct"), each = 2*m))
 #' 
-#' qplot(w, val, data = values, geom = "line",
+#' ggplot2:::qplot(w, val, data = values, geom = "line",
 #'       facets = . ~ Part, colour = Type)
 #'
 #' ## Characteristic function of a bivariate normal distribution
@@ -71,7 +73,7 @@ FIntegral <- function(f, n, m, a, b, c, d, r, s)
     ## m: Resolution of the integral.
     ## a: nx1 vector. Lower integration limit.
     ## b: nx1 vector. Upper integration limit.
-    ## c: nx1 vector. Lower limit of w.
+    ## d: nx1 vector. Lower limit of w.
     ## l: nx1 vector. Upper limit of w.
     ## r: Power in (4.1).
     ## s: Scale constant in (4.1).
@@ -87,7 +89,7 @@ FIntegral <- function(f, n, m, a, b, c, d, r, s)
     ## r = 1 is equivalent to the following:
     if(s != 1)
         {
-            out <- I(f, n, m, a, b, s*c,
+            out <- FIintegral(f, n, m, a, b, s*c,
                      s*d, r, 1)
             w <- out$w/s
             return(list(w = w,
@@ -110,10 +112,10 @@ FIntegral <- function(f, n, m, a, b, c, d, r, s)
             J2 <- m:(2*m - 1)
             t <- a + bet*J1
             w <- c + gam*J1
-            y <- c(f(t)*complex(arg = -J1*(bet*c + del*J1)),
+            y <- c(f(t)*complex(argument = -J1*(bet*c + del*J1)),
                    rep(0, m))
-            z <- complex(arg = del*(c(J1^2, (J2 - 2*m)^2)))
-            val <- bet*complex(arg = -(a*w + del*J1^2))*
+            z <- complex(argument = del*(c(J1^2, (J2 - 2*m)^2)))
+            val <- bet*complex(argument = -(a*w + del*J1^2))*
                 fft(fft(y)*fft(z), inverse = T)/
                     (2*pi)^((1 - r)/2)/(2*m)
 
@@ -175,7 +177,7 @@ FIntegral <- function(f, n, m, a, b, c, d, r, s)
     aux1 <- drop(a_hat[1]*w[1, ] + del[1]*J1^2)
     aux2 <- drop(a_hat[2]*w[2, ] + del[2]*J1^2)
 #
-    expo <- complex(arg= (aux1 %o% aux2)) # mxm
+    expo <- complex(argument= (aux1 %o% aux2)) # mxm
     expo <- exp(1i*outer(aux1, aux2, '+')) # mxm
     fact <- prod(bet)*((2*pi)^(1 - r))^(-n/2) # real
     idft <- (fft(dft, inverse = T)/(2*m)^2)[1:m, 1:m]
@@ -186,4 +188,3 @@ FIntegral <- function(f, n, m, a, b, c, d, r, s)
     return(list(w = w,
                 ft = val))
 }
-
