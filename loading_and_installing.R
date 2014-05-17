@@ -12,7 +12,7 @@ install()
 build_vignettes()
 
 ## Check
-check()
+##check()
 
 ## Generate compressed source to be sent to CRAN
 ## build()
@@ -27,6 +27,7 @@ mvdeconvolution:::FIntegral
 FIntegral
 ## FIntegral()
 ? FIntegral
+? ecf
 
 
 remove.packages("mvdeconvolution")
