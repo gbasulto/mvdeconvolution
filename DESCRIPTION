@@ -8,7 +8,9 @@ Author: Guillermo Basulto-Elias <basulto@iastate.edu>
 Maintainer: Guillermo Basulto-Elias <basulto@iastate.edu>
 License: MIT + file LICENSE
 Imports:
-    ggplot2
+    ggplot2,
+    dplyr,
+    reshape2
 Suggests:
     knitr
 VignetteBuilder: knitr

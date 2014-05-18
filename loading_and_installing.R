@@ -1,7 +1,7 @@
 
+rm(list = ls())
 library(devtools)
 library(roxygen2)
-
 has_devel()
 
 document()
@@ -28,6 +28,7 @@ FIntegral
 ## FIntegral()
 ? FIntegral
 ? ecf
+? kde.cf
 
 
 remove.packages("mvdeconvolution")
