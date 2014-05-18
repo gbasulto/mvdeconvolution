@@ -20,16 +20,10 @@ build_vignettes()
 library(mvdeconvolution)
 library(help = mvdeconvolution)
 
-
-
-
-mvdeconvolution:::FIntegral
-FIntegral
-## FIntegral()
 ? FIntegral
 ? ecf
 ? kde.cf
-
+? ker
 
 remove.packages("mvdeconvolution")
 
