@@ -24,6 +24,8 @@ library(help = mvdeconvolution)
 ? ecf
 ? kde.cf
 ? ker
+? rgam
+? dgam
 
 remove.packages("mvdeconvolution")
 
