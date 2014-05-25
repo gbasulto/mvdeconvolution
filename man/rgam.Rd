@@ -67,7 +67,7 @@ z <- apply(matrix(y), 1, function(a)
 
 plot(y ~ x, data = sam, col = "gray",
      main = "Sample with true density overlaid")
-contour(x, y, z, add = T)
+contour(x, y, z, add = TRUE)
 
 
 
