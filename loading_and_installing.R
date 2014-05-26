@@ -26,6 +26,8 @@ library(help = mvdeconvolution)
 ? ker
 ? rgam
 ? dgam
+? kerdecon
+
 
 remove.packages("mvdeconvolution")
 
