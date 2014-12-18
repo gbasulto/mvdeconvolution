@@ -89,7 +89,7 @@ FIntegral <- function(f, n, m, a, b, c, d, r, s)
     ## r = 1 is equivalent to the following:
     if(s != 1)
         {
-            out <- FIintegral(f, n, m, a, b, s*c,
+            out <- FIntegral(f, n, m, a, b, s*c,
                      s*d, r, 1)
             w <- out$w/s
             return(list(w = w,
