@@ -73,7 +73,8 @@ integrand <- function(t, EMethod, error, sigE, truncate, h,
 #' @param h Bivariate vector with the bandwidth parameters.
 #' @param EMethod Method used to approximate the characteristic function of 
 #' the error. 1 or 2 if ecf of the char. fnc. of the kde is used, respectively.
-#' differences obtained from the panel data structure.
+#' differences obtained from the panel data structure. It can also accept "ecf" or "kde"
+#' respectively.
 #' @param columns Number of columns of the panel data. If there is one column, 
 #' it assumes that instead panel data, a pure sample of the error is provided.
 #' @param Kkernel Kernel to be used. See 'ker' function.
@@ -94,6 +95,8 @@ kerdecon <- function(resol, samp, error, truncate, h, EMethod,
                        columns, Kkernel,
                        coord1Range, coord2Range,
                        sigE = NULL, pstve = TRUE){  
+  ## Change EMethod value to numeric, if necessary.
+  if(!is.numeric(EMethod)) EMethod <- ifelse(EMethod == "ecf", 1, 2)
   
   f <- function(t1, t2) integrand(t= c(t1, t2), EMethod = EMethod,
                                   error = error,
