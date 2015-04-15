@@ -69,6 +69,7 @@ dgam <- function(val, shape1, rate1, shape2, rate2, r){
   dvals <- dG1/dnorm(QFG1)*dG1/dnorm(QFG1)*
     dmvnorm(cbind(QFG1, QFG2), Mu, Sig)
 
+  dvals[is.na(dvals)] <- 0
   return(dvals)
 }
 
