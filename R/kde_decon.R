@@ -106,7 +106,7 @@ kerdecon <- function(resol, samp, error, truncate, h, EMethod,
                                   columns = columns,
                                   Kkernel)
   
-  res <- FIintegral(f= f, n= 2, m= resol, a= - 1/h, b= 1/h,
+  res <- FIntegral(f= f, n= 2, m= resol, a= - 1/h, b= 1/h,
            c= c(coord1Range[1], coord2Range[1]),
            d= c(coord1Range[2], coord2Range[2]), r = -1, s = -1)
   
