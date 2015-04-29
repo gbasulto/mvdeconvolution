@@ -114,7 +114,12 @@ kerdecon <- function(resol, samp, error, truncate, h, EMethod,
   ##       by zero.
   z <- Re(res$ft)
   ## cat(paste("Prop. of neg. vals. =", mean(z < 0), "\n"))
-  if(pstve) z[z < 0] <- 0
+
+  ## If pstve = T, it sets negative parts to zero and renormalizes.
+  if(pstve) {
+    z[z < 0] <- 0
+    z <- z/sum(z)
+  }
   
   return(list(x1 = res$w[1, ],
               x2 = res$w[2, ],
