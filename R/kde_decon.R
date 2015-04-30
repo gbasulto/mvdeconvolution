@@ -118,7 +118,7 @@ kerdecon <- function(resol, samp, error, truncate, h, EMethod,
   ## If pstve = T, it sets negative parts to zero and renormalizes.
   if(pstve) {
     z[z < 0] <- 0
-    z <- z/sum(z)
+    z <- z/sum(z)/diff(res$w[1, 1:2])/diff(res$w[2, 1:2])
   }
   
   return(list(x1 = res$w[1, ],
