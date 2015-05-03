@@ -83,8 +83,8 @@ FIntegral <- function(f, n, m, a, b, c, d, r, s)
     ## ft: Continuous Fourier transform values at w.
     ## 
 
-    ## This is an adjustment for the upper limit:
-    d <- c + m*(d - c)/(m - 1)
+#     ## This is an adjustment for the upper limit:
+#     d <- c + m*(d - c)/(m - 1)
     
     ## r = 1 is equivalent to the following:
     if(s != 1)
