@@ -51,6 +51,11 @@ kde.cf <- function(t, samp, Sigma)
 #' @export
 ker <- function(t, kernel)
 {
+  ## Accept kernel name besides number.
+  if(is.character(kernel)){
+      kernel <- switch(kernel, sinc = 1, VP = 2, triw = 3, 
+                       tric = 4, flat = 5)
+      }
   ## Dimension
   d <- length(t)
   ## Absolute value
