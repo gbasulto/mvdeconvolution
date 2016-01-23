@@ -30,7 +30,7 @@ library(help = mvdeconvolution)
 ? kerdecon
 
 
-remove.packages("mvdeconvolution")
+# remove.packages("mvdeconvolution")
 
 
 ## Install from Github
