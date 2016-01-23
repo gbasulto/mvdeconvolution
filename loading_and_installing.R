@@ -4,6 +4,7 @@ library(devtools)
 library(roxygen2)
 has_devel()
 
+## Create Rd files
 document()
 
 install()
