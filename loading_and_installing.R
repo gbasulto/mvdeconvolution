@@ -4,19 +4,10 @@ library(devtools)
 library(roxygen2)
 has_devel()
 
-## Create Rd files
-document()
-
 install()
 
 ## Create vignettes
 build_vignettes()
-
-## Check
-##check()
-
-## Generate compressed source to be sent to CRAN
-## build()
 
 library(mvdeconvolution)
 library(help = mvdeconvolution)
